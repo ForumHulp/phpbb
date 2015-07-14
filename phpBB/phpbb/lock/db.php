@@ -77,7 +77,7 @@ class db
 	* @return	bool			true if lock was acquired
 	*							false otherwise
 	*/
-	public function acquire()
+	public function acquire($task = ''
 	{
 		if ($this->locked)
 		{
@@ -104,7 +104,7 @@ class db
 			}
 		}
 
-		$this->unique_id = time() . ' ' . unique_id();
+		$this->unique_id = time() . ' ' . $task;
 
 		// try to update the config value, if it was already modified by another
 		// process we failed to acquire the lock.
