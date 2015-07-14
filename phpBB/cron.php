@@ -48,7 +48,7 @@ $cron_type = request_var('cron_type', '');
 output_image();
 
 $cron_lock = $phpbb_container->get('cron.lock_db');
-if ($cron_lock->acquire())
+if ($cron_lock->acquire($cron_type))
 {
 	$cron = $phpbb_container->get('cron.manager');
 
